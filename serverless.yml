@@ -1,0 +1,26 @@
+
+service: worksheet-backend-app
+
+custom:
+  AWS_BUCKET_NAME: bee-assets-${opt:stage, 'production'}
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  timeout: 30 
+  stage: ${opt:stage, 'production'}
+  region: ap-south-1
+  versionFunctions: false
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource: "arn:aws:s3:::${self:custom.AWS_BUCKET_NAME}/*"
+  
+
+functions:
+  app:
+    handler: ./src/server.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
