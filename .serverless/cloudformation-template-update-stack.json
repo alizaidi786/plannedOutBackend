@@ -168,7 +168,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/worksheet-backend-app/production/1627618385972-2021-07-30T04:13:05.972Z/worksheet-backend-app.zip"
+          "S3Key": "serverless/worksheet-backend-app/production/1628337065923-2021-08-07T11:51:05.923Z/worksheet-backend-app.zip"
         },
         "Handler": "./src/server.handler",
         "Runtime": "nodejs10.x",
@@ -257,7 +257,10 @@
           }
         },
         "MethodResponses": []
-      }
+      },
+      "DependsOn": [
+        "AppLambdaPermissionApiGateway"
+      ]
     },
     "ApiGatewayMethodProxyVarAny": {
       "Type": "AWS::ApiGateway::Method",
@@ -300,9 +303,12 @@
           }
         },
         "MethodResponses": []
-      }
+      },
+      "DependsOn": [
+        "AppLambdaPermissionApiGateway"
+      ]
     },
-    "ApiGatewayDeployment1627618380955": {
+    "ApiGatewayDeployment1628337058984": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
