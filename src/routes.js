@@ -1,79 +1,53 @@
 module.exports = function (app) {
-  var Category = require("./controllers/PreferenceCategory/PreferenceCategory");
-  var SubCategory = require("./controllers/SubCategory/SubCategory");
-  var WsTheme = require("./controllers/WsTheme/WsTheme");
-  var WsTitle = require("./controllers/WsTitle/WsTitle");
-  var WsTitleFormat = require("./controllers/WsTitleFormat/WsTitle");
-  var WsTitleMis = require("./controllers/WsTitleMis/WsTitleMis");
-  var Worksheet = require("./controllers/worksheet/Worksheet");
-  var WsGrade = require("./controllers/WsGrade/WsGrade");
-  var Content = require("./controllers/Content/Content");
-  var ChoosePreferenceSubCategory = require("./controllers/ChoosePreferenceSubCategory/choosePreferenceSubCategory");
-
+  // var Signup = require("./controllers/SignupDetails/SignupData");
+  var Messages = require("./controllers/Messages/messages");
+  var Conversation = require("./controllers/Coversation/conversation");
+  var User = require("./controllers/User/user");
+  var Activity = require("./controllers/Activity/activity");
+  var Friend = require("./controllers/Friend/friend");
+  var Plan = require("./controllers/Plan/plan");
+  var Qoute = require("./controllers/Qoute/qoute");
+  var UserPreference = require("./controllers/User Preference/userPreference");
+  // // app
+  // //     .route("/signup-details/:id?")
+  // //     .put(Signup.create)
+  // //     .get(Signup.get)
+  // //     .post(Signup.update)
+  //     .delete(Signup.delete);
   app
-    .route("/category/:id?")
-    .put(Category.create)
-    .get(Category.get)
-    .post(Category.update)
-    .delete(Category.delete);
-
-  app.route("/category-tree").get(Category.getCategoryTree);
-
+    .route("/conversation/:id?")
+    .put(Conversation.create)
+    .get(Conversation.get);
+  app.route("/messages/:id?").put(Messages.create).get(Messages.get);
+  app.route("/user/:id?").put(User.create).get(User.get);
   app
-    .route("/sub-category/:id?")
-    .put(SubCategory.create)
-    .get(SubCategory.get)
-    .post(SubCategory.update)
-    .delete(SubCategory.delete);
-
+  .route("/activity/:id?")
+  .put(Activity.create)
+  .get(Activity.get)
+  .post(Activity.update)
+  .delete(Activity.delete);
   app
-    .route("/ws-theme/:id?")
-    .put(WsTheme.create)
-    .get(WsTheme.get)
-    .post(WsTheme.update)
-    .delete(WsTheme.delete);
-
+  .route("/friend/:id?")
+  .put(Friend.create)
+  .get(Friend.get)
+  .post(Friend.update)
+  .delete(Friend.delete);
   app
-    .route("/ws-title/:id?")
-    .put(WsTitle.create)
-    .get(WsTitle.get)
-    .post(WsTitle.update)
-    .delete(WsTitle.delete);
-
+  .route("/plan/:id?")
+  .put(Plan.create)
+  .get(Plan.get)
+  .post(Plan.update)
+  .delete(Plan.delete);
   app
-    .route("/ws-title-format/:id?")
-    .put(WsTitleFormat.create)
-    .get(WsTitleFormat.get)
-    .post(WsTitleFormat.update)
-    .delete(WsTitleFormat.delete);
-
+  .route("/qoute/:id?")
+  .put(Qoute.create)
+  .get(Qoute.get)
+  .post(Qoute.update)
+  .delete(Qoute.delete);
   app
-    .route("/ws-title-mis/:id?")
-    .put(WsTitleMis.create)
-    .get(WsTitleMis.get)
-    .post(WsTitleMis.update)
-    .delete(WsTitleMis.delete);
-
-  app
-    .route("/worksheet/:id?")
-    .put(Worksheet.create)
-    .get(Worksheet.get)
-    .post(Worksheet.update)
-    .delete(Worksheet.delete);
-
-  app
-    .route("/ws-grade/:id?")
-    .put(WsGrade.create)
-    .get(WsGrade.get)
-    .post(WsGrade.update)
-    .delete(WsGrade.delete);
-
-  app.route("/contents").post(Content.get);
-
-  app
-    .route("/choose-sub-category-preferences/:id?")
-    .put(ChoosePreferenceSubCategory.create)
-    .get(ChoosePreferenceSubCategory.get)
-    .post(ChoosePreferenceSubCategory.update)
-    .delete(ChoosePreferenceSubCategory.delete);
+  .route("/userPreference/:id?")
+  .put(UserPreference.create)
+  .get(UserPreference.get)
+  .post(UserPreference.update)
+  .delete(UserPreference.delete);
 };

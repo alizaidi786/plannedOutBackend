@@ -4,10 +4,11 @@ const path = require('path');
 const {createIndexes} = require("./createIndex");
 
 mongoose.Promise = global.Promise;
+mongoose.set('useFindAndModify', false);
 
 let conn = null;
 
-let dbURL = "mongodb://admin:rT0iB4xD7rR5lP2aC2aF7uJ8wV1d@35.154.254.97:27017/appDB?authSource=admin&retryWrites=true&w=majority";
+let dbURL = "mongodb://localhost:27017/PlannedOut";
 
 module.exports.connectToDatabase = async () => {
     if (conn == null) {
@@ -30,4 +31,4 @@ module.exports.connectToDatabase = async () => {
     return conn;
 };
 
-this.connectToDatabase()
+this.connectToDatabase();
