@@ -8,6 +8,8 @@ module.exports = function (app) {
   var Plan = require("./controllers/Plan/plan");
   var Qoute = require("./controllers/Qoute/qoute");
   var UserPreference = require("./controllers/User Preference/userPreference");
+  var ShortTerm = require("./controllers/Short Term/shortTerm");
+  var LongTerm = require("./controllers/Long Term/longTerm");
   // // app
   // //     .route("/signup-details/:id?")
   // //     .put(Signup.create)
@@ -50,4 +52,16 @@ module.exports = function (app) {
   .get(UserPreference.get)
   .post(UserPreference.update)
   .delete(UserPreference.delete);
+  app
+  .route("/shortTerm/:id?")
+  .put(ShortTerm.create)
+  .get(ShortTerm.get)
+  .post(ShortTerm.update)
+  .delete(ShortTerm.delete);
+  app
+  .route("/longTerm/:id?")
+  .put(LongTerm.create)
+  .get(LongTerm.get)
+  .post(LongTerm.update)
+  .delete(LongTerm.delete);
 };
